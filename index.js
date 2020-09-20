@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const Client = new Discord.Client()
-Client.login('NzU2NDk5ODMzNTc3MDEzMjg4.X2SvXw.sgJDoC_vKv3xO-vdc24Ms26DKWk');
+Client.login('PLACEHOLDER');
 const Constants = require('discord.js/src/util/Constants.js')
 Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`
 Client.on("ready", () => {
