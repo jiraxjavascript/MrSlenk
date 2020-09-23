@@ -10,7 +10,7 @@ Client.on("ready", () => {
 
 Client.on("guildCreate", guild => {
 
-  Client.channels.cache.get("756880217754304572").send("pridal nášho bota do serveru! :smile:");
+  Client.channels.cache.get("756880217754304572").send(`Ďakujem za pridanie nášho bota na server: ${guild.name}`);
 });
 
 const cheerio = require('cheerio');
