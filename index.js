@@ -141,3 +141,6 @@ Client.on('message', async(message) =>{
        message.channel.send(embed)
       }
     })
+    if(command === 'keksik') {
+      message.channel.send(:cookie:);
+      
