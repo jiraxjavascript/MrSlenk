@@ -8,6 +8,11 @@ Client.on("ready", () => {
   Client.user.setActivity(`my leader Slenky#0001 | ;help`, { type: 2, browser: "DISCORD IOS"  });
 });
 
+Client.on("guildCreate", guild => {
+
+  Client.channels.cache.get("756880217754304572").send("pridal nášho bota do serveru! :smile:");
+});
+
 const cheerio = require('cheerio');
 
 const request = require('request');
