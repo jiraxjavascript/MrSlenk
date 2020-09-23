@@ -46,7 +46,7 @@ Client.on('message', async(message) =>{
       .setColor ('ORANGE')
       .setAuthor('Bota vytvoril Slenky#0001')
       .setURL('https://discord.com/oauth2/authorize?client_id=756499833577013288&scope=bot&permissions=8')
-      .addField('List príkazov:', "invite, navod, ping, zamavaj, meme, pes, macka, liska, dance, cringeyoutuber, cislo")
+      .addField('List príkazov:', "invite, navod, ping, zamavaj, meme, pes, macka, liska, dance, cringeyoutuber, cislo, keksik")
       .setFooter('Prefix pre všetky príkazy je ";"')
       message.channel.send(embed)
     }
