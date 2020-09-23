@@ -40,7 +40,7 @@ Client.on('message', async(message) =>{
       message.channel.send('https://www.youtube.com/c/TommyInnit/');
   }
 
-
+      if(command === 'help') {
       var embed = new Discord.MessageEmbed()
       .setTitle('List príkazov bota Mr. Slenk')
       .setColor ('ORANGE')
@@ -51,16 +51,8 @@ Client.on('message', async(message) =>{
       message.channel.send(embed)
     }
 
-    if(command === 'pravidla') {
-      var embed = new Discord.MessageEmbed()
-      .setColor ('ORANGE')
-      .setURL('https://discord.com/oauth2/authorize?client_id=756499833577013288&scope=bot&permissions=8')
-      .addField('Vitaj!', "Ahoj, vitaj na **oficiálnom serveri bota Mr. Slenk!** Tento server nemá nejaká priame pravidlá a snažíme sa vítať všetko ale úplne všetko jednoducho povolené byť nemôže. Seba propagácia a spam tu je zakázaný s tým že rasizmus je prísne zakázany a bude sa trestať okamžitým banom. Mimo toho dúfam že sa ti tu bude páčiť a že zostaneš!")
-      .setFooter('Prefix pre všetky príkazy je ";"')
-      message.channel.send(embed)
-    }
-
-    if(command === 'zamavaj') {
+    
+     if(command === 'zamavaj') {
         message.channel.send(':wave:');
     }
 
@@ -69,9 +61,6 @@ Client.on('message', async(message) =>{
   }
 
   
-  if(command === 'nnty') {
-    message.channel.send('nn ty @MUDr. Seasick8083');
-}
 
     if(command === "meme") {
       const fetch = require("node-fetch")
@@ -141,8 +130,6 @@ Client.on('message', async(message) =>{
       }
 
     if(command === 'keksik') {
-      message.channel.send(:cookie:);
+      message.channel.send(":cookie:");
           
-    }
-     
-    })
+    }})
