@@ -41,7 +41,6 @@ Client.on('message', async(message) =>{
   }
 
 
-    if(command === 'help') {
       var embed = new Discord.MessageEmbed()
       .setTitle('List príkazov bota Mr. Slenk')
       .setColor ('ORANGE')
@@ -140,7 +139,10 @@ Client.on('message', async(message) =>{
       .setColor('ORANGE')
        message.channel.send(embed)
       }
-    })
+
     if(command === 'keksik') {
       message.channel.send(:cookie:);
-      
+          
+    }
+     
+    })
