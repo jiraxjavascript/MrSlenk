@@ -10,9 +10,11 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-
-client.on('ready', () => {
-  console.log(`Bot is ready`);
+const Constants = require('discord.js/src/util/Constants.js')
+Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`
+client.on("ready", () => {
+  console.log("Loading status..")
+  client.user.setActivity(`my leader Slenky#0001 | ;help`, { type: 2, browser: "DISCORD IOS"  });
 });
 
 client.on('message', async(message) => {
