@@ -1,140 +1,32 @@
-const Discord = require('discord.js')
-const Client = new Discord.Client()
-Client.login('PLACEHOLDER');
-const Constants = require('discord.js/src/util/Constants.js')
-Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`
-Client.on("ready", () => {
-  console.log("Loading status..")
-  Client.user.setActivity(`my leader Slenky#0001 | ;help`, { type: 2, browser: "DISCORD IOS"  });
-});
+const fs              = require('fs');
+const Discord         = require('discord.js');
+const {prefix, token} = require('./config.json');
+const client          = new Discord.Client();
+client.commands       = new Discord.Collection();
+const commandFiles    = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-Client.on("guildCreate", guild => {
-
-  Client.channels.cache.get("756880217754304572").send(`Ďakujem za pridanie nášho bota na server: ${guild.name}`);
-});
-
-const cheerio = require('cheerio');
-
-const request = require('request');
-
-const cooldown = new Set()
-const cdtime = 180
-
-
-const prefix = ";"
-
-Client.on('message', async(message) =>{
-    if(!message.content.startsWith(prefix)) return;
-
-    const args = message.content.slice(prefix.length).split(" ")
-    const command = args.shift().toLowerCase();
-
-    if(command === 'ping') {
-        message.channel.send('Pong!');
-    }
-
-    if(command === 'invite') {
-        message.channel.send('**Bota Mr. Slenk vieš pridať do svojho servera tu:** https://discord.com/oauth2/authorize?client_id=756499833577013288&scope=bot&permissions=8');
-    }
-
-    if(command === 'navod') {
-        message.channel.send('https://i.imgur.com/S0xB9im.png');
-    }
-
-    if(command === 'cringeyoutuber') {
-      message.channel.send('https://www.youtube.com/c/TommyInnit/');
-  }
-
-      if(command === 'help') {
-      var embed = new Discord.MessageEmbed()
-      .setTitle('List príkazov bota Mr. Slenk')
-      .setColor ('ORANGE')
-      .setAuthor('Bota vytvoril Slenky#0001')
-      .setURL('https://discord.com/oauth2/authorize?client_id=756499833577013288&scope=bot&permissions=8')
-      .addField('List príkazov:', "invite, navod, ping, zamavaj, meme, pes, macka, liska, dance, cringeyoutuber, cislo, keksik")
-      .setFooter('Prefix pre všetky príkazy je ";"')
-      message.channel.send(embed)
-    }
-
-    
-     if(command === 'zamavaj') {
-        message.channel.send(':wave:');
-    }
-
-    if(command === 'dance') {
-      message.channel.send('https://media.giphy.com/media/3o7qE2VAxuXWeyvJIY/source.gif');
-  }
-
-  
-
-    if(command === "meme") {
-      const fetch = require("node-fetch")
-      var json = await (await fetch("https://api.hyrousek.tk/meme")).json();
-      if(!json.url) return;
-      
-      var embed = new Discord.MessageEmbed()
-        .setImage(json.url)
-        .setTitle('Čerstvý a chrumkavý meme bol práve dopečený!')
-        .setFooter('API vytvoril 𝙃𝙮𝙧𝙤#8938 | Bota vytvoril Slenky#0001')
-        .setURL('https://youtube.com/Slenkye')
-      message.channel.send(embed)
-    }
-
-    if(command === "pes") {
-      const fetch = require("node-fetch")
-      var json = await (await fetch("https://api.hyrousek.tk/dog")).json();
-      if(!json.url) return;
-      
-      var embed = new Discord.MessageEmbed()
-        .setImage(json.url)
-        .setTitle('Krásny psík pre teba! :3')
-        .setFooter('API vytvoril 𝙃𝙮𝙧𝙤#8938 | Bota vytvoril Slenky#0001')
-        .setURL('https://youtube.com/Slenkye')
-      message.channel.send(embed)
-    }
-    
-    if(command === "macka") {
-      const fetch = require("node-fetch")
-      var json = await (await fetch("https://api.hyrousek.tk/cat")).json();
-      if(!json.url) return;
-      
-      var embed = new Discord.MessageEmbed()
-        .setImage(json.url)
-        .setTitle('Mňau! :3')
-        .setFooter('API vytvoril 𝙃𝙮𝙧𝙤#8938 | Bota vytvoril Slenky#0001')
-        .setURL('https://youtube.com/Slenkye')
-      message.channel.send(embed)
-    }
-
-      
-    if(command === "liska") {
-      const fetch = require("node-fetch")
-      var json = await (await fetch("https://api.hyrousek.tk/fox")).json();
-      if(!json.url) return;
-
-     
-      
-      var embed = new Discord.MessageEmbed()
-        .setImage(json.url)
-        .setTitle(':fox::fox::fox:')
-        .setFooter('API vytvoril 𝙃𝙮𝙧𝙤#8938 | Bota vytvoril Slenky#0001')
-        .setURL('https://youtube.com/Slenkye')
-      message.channel.send(embed)
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
 }
-      if(command === "cislo") {
-        const fetch = require("node-fetch")
-        const json = await (await fetch('https://api.hyrousek.tk/useless/randomNumber?from=0&to=1000')).json();
-        if(!json.number) return;
 
-      var embed = new Discord.MessageEmbed()
-      .setDescription(json.number)
-      .setFooter('discord.gg/fRGSmns | Slenky#0001')
-      .setAuthor('TIP: Pripoj sa do nášho Discordu! ')
-      .setColor('ORANGE')
-       message.channel.send(embed)
-      }
 
-    if(command === 'keksik') {
-      message.channel.send(":cookie:");
-          
-    }})
+client.on('ready', () => {
+  console.log(`Bot is ready`);
+});
+
+client.on('message', async(message) => {
+  if(!message.content.startsWith(prefix)) return;
+
+  const args = message.content.slice(prefix.length).split(" ");
+  const command = args.shift().toLowerCase();
+
+  try{
+    client.commands.get(command).execute(message, args);
+  }catch{
+    console.log('error');
+  }
+
+});
+
+client.login(token);
