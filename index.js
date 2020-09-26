@@ -14,6 +14,8 @@ for (const file of commandFiles) {
 //const Constants = require('discord.js/src/util/Constants.js')
 //Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`
 
+const Constants = require('discord.js/src/util/Constants.js')
+Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`
 client.on("ready", () => {
   console.log("Loading status..")
   client.user.setActivity(`my leader Slenky#0001 | ;help`, { type: 2, browser: "DISCORD IOS"  });
