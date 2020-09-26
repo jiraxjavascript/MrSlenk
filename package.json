@@ -1,7 +1,7 @@
 {
   "name": "botaska",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mr. Slenk je discord.js bot čo má rôzne zábavné príkazy.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +10,18 @@
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
+    "constants": "0.0.2",
     "discord.js": "^12.3.1",
     "random-puppy": "^1.1.0",
     "request": "^2.88.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SlenkyDev/MrSlenk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SlenkyDev/MrSlenk/issues"
+  },
+  "homepage": "https://github.com/SlenkyDev/MrSlenk#readme"
 }

@@ -3,6 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
 	name: 'meme',
 	description: 'Posle meme',
+	cooldown: 2,
 	async execute(message, args) {
         const fetch = require("node-fetch");
       	var json = await (await fetch("https://api.hyrousek.tk/meme")).json();

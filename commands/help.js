@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 
 module.exports = {
 	name: 'help',
-	description: 'Posle help',
+    description: 'Posle help',
 	async execute(message, args) {
         var embed = new Discord.MessageEmbed()
         .setTitle('List príkazov bota Mr. Slenk')
