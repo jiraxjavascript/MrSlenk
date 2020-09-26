@@ -3,6 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
 	name: 'macka',
 	description: 'Posle macku',
+	cooldown: 4,
 	async execute(message, args) {
         const fetch = require("node-fetch")
 		var json = await (await fetch("https://api.hyrousek.tk/cat")).json();
