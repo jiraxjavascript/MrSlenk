@@ -18,7 +18,7 @@ const Constants = require('discord.js/src/util/Constants.js')
 Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`
 client.on("ready", () => {
   console.log("Loading status..")
-  client.user.setActivity(`my leader Slenky#0001 | ;help`, { type: 2, browser: "DISCORD IOS"  });
+  client.user.setActivity(`my new logo! | ;help`, { type: 3, browser: "DISCORD IOS"  });
 });
 
 client.on('message', async(message) => {
