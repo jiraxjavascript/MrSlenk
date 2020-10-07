@@ -16,7 +16,7 @@ Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`
 
 client.on("ready", () => {
   console.log("Loading status..")
-  client.user.setActivity(`my new logo! | ;help`, { type: 3, browser: "DISCORD IOS"  });
+  client.user.setActivity(`memesare.fun | ;help`, { type: 3, browser: "DISCORD IOS"  });
 });
 
 client.on('message', async(message) => {
