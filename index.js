@@ -11,11 +11,9 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-//const Constants = require('discord.js/src/util/Constants.js')
-//Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`
-
 const Constants = require('discord.js/src/util/Constants.js')
 Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`
+
 client.on("ready", () => {
   console.log("Loading status..")
   client.user.setActivity(`my new logo! | ;help`, { type: 3, browser: "DISCORD IOS"  });
@@ -58,8 +56,8 @@ client.on('message', async(message) => {
 
 	try {
 		command.execute(message, args);
-	}catch{
-		console.log('error');
+	}catch (e){
+		console.log(e);
 	}
 });
 
