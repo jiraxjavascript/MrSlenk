@@ -1,3 +1,4 @@
+
 const { execute } = require("./help");
 
 module.exports = {
@@ -6,18 +7,15 @@ module.exports = {
     async execute(message, args) {
         const Discord = require('discord.js');
         const randomPuppy = require('random-puppy');
-        const snekfetch = require ('snekfetch')
 
-        const subReddits = ["duklock"]
-        const random = subReddits[Math.floor(Math.random() * subReddits.lenght)];
-        const img = await randomPuppy(subReddits)
+        const img = await randomPuppy("duklock")
 
         const embed = new Discord.MessageEmbed()
         .setImage(img)
         .setTitle('Priamo z Redditu r/Duklock!')
         .setURL('https://reddit.com/r/duklock')
         .setFooter('Bota vytvoril Slenky#0001')
-
+        .setColor('ORANGE')
         message.channel.send(embed);
     },
 }
