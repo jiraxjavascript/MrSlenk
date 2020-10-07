@@ -17,6 +17,7 @@ module.exports.run = async (bot, message, args) => {
     .setImage(img)
     .setTitle('Priamo z Redditu r/Duklock!')
     .setURL('https://reddit.com/r/duklock')
+    .setFooter('Bota vytvoril Slenky#0001')
 
     message.channel.send(embed);
     
